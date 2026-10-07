@@ -16,14 +16,12 @@ function createPromise() {
   });
 }
 
-const startTime = Date.now();
-
 const promise1 = createPromise();
 const promise2 = createPromise();
 const promise3 = createPromise();
 
 Promise.all([promise1, promise2, promise3]).then((results) => {
-  const totalTime = (Date.now() - startTime) / 1000;
+  const totalTime = Math.max(...results);
 
   output.innerHTML = `
     <tr>
